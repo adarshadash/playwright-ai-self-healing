@@ -36,6 +36,80 @@ scripts/heal-locators.ts      ← weekly / on-demand registry update
 .github/workflows/            ← daily regression + weekly Claude healing PR
 ```
 
+### How a test run flows through the files
+
+```mermaid
+flowchart TD
+    CMD(["npx playwright test"]) --> CFG["playwright.config.ts<br/>baseURL, projects, reporters"]
+    CFG --> PROJ{"Project"}
+    PROJ -->|chromium| UI["tests/ui/*.spec.ts"]
+    PROJ -->|migrated| MIG["migration/output/*.migrated.spec.ts"]
+    PROJ -->|unit| UNIT["tests/unit/*.spec.ts<br/>no browser"]
+
+    UI --> FIX["src/fixtures.ts<br/>healer, page objects, loggedIn"]
+    MIG --> FIX
+    FIX --> DATA["src/utils/test-data.ts<br/>users, products, customer"]
+    FIX --> PO["src/pages/*-page.ts<br/>Login, Inventory, Cart, Checkout"]
+    PO --> BASE["src/pages/base-page.ts<br/>click / fill / text by key"]
+    BASE --> HEAL["src/healing/self-healing-locator.ts<br/>get(key)"]
+    FIX -->|healer fixture| HEAL
+
+    HEAL --> REG[("locators/locators.json<br/>selector, description, fallbacks")]
+    HEAL --> P1{"Primary selector found?"}
+    P1 -->|yes| ACT["Playwright action / assertion<br/>on saucedemo.com"]
+    P1 -->|no| P2{"A fallback matches?"}
+    P2 -->|yes| LOG
+    P2 -->|no| P3{"Heuristic from description<br/>matches exactly one?"}
+    P3 -->|yes| LOG
+    P3 -->|no| P4{"ANTHROPIC_API_KEY set?"}
+    P4 -->|yes| AI["src/healing/claude-healer.ts<br/>trimmed DOM to Claude"]
+    AI -->|valid selector| LOG
+    AI -->|no match| ERR["HealingError"]
+    P4 -->|no| ERR
+    LOG["src/healing/healing-log.ts<br/>recordHeal()"] --> JSONL[("reports/healing/heal-PID.jsonl")]
+    LOG --> ACT
+
+    ACT --> RESULT["Test result"]
+    ERR --> RESULT
+    UNIT --> RESULT
+    RESULT --> REP["src/reporting/human-readable-reporter.ts<br/>onTestEnd"]
+    RESULT --> HTML["Playwright HTML report<br/>reports/html"]
+    REP -->|failed tests| TR["src/reporting/failure-translator.ts<br/>cause, owner, fix"]
+    TR --> REP
+    JSONL --> REP
+    REP -->|onEnd| OUT[("reports/failure-report.md + .html")]
+
+    JSONL --> HS["scripts/heal-locators.ts<br/>npm run heal / heal:apply"]
+    HS --> SUM[("reports/healing/healing-summary.md")]
+    HS -->|--apply| REG
+```
+
+### How the migration produces the `migrated` tests
+
+```mermaid
+flowchart LR
+    CMD(["npm run migrate"]) --> ORC["migration/orchestrator.ts<br/>parallel pipeline per file"]
+    JAVA[("migration/legacy-selenium/*.java")] --> ORC
+    ORC --> AN["agents/analyzer-agent.ts<br/>parse actions, flag smells"]
+    AN --> CV["agents/converter-agent.ts<br/>rules or Claude"]
+    REG[("locators/locators.json")] --> CV
+    CV --> RV["agents/reviewer-agent.ts<br/>assertions, no hard waits"]
+    RV -->|errors, max 2 rounds| CV
+    RV -->|approved| OUT[("migration/output/*.migrated.spec.ts")]
+    RV --> RPT[("migration/output/migration-report.md")]
+    OUT --> RUN["Run as the migrated project<br/>uses self-healing"]
+```
+
+### Scheduled jobs
+
+```mermaid
+flowchart LR
+    D(["Daily, push, PR"]) --> DR[".github/workflows/daily-regression.yml<br/>AI healing off"]
+    DR --> T1["npx playwright test"] --> S1["npm run heal"] --> A1[("Job summary + report artifacts")]
+    W(["Weekly or on demand"]) --> WH[".github/workflows/weekly-heal.yml<br/>Claude healing on"]
+    WH --> T2["npx playwright test"] --> S2["npm run heal:apply"] --> PR[("Pull request<br/>updated locators.json")]
+```
+
 ### Self-healing ladder
 
 | Tier | When it runs | Cost |
