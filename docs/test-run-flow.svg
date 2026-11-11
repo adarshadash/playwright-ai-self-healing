@@ -105,7 +105,7 @@
 <rect x="882.2" y="584" width="35.6" height="16" rx="8" fill="#FFFFFF"/>
 <text x="900" y="596" class="l">miss</text>
 <rect x="12" y="710" width="976" height="190" rx="12" fill="#FFFFFF"/>
-<text x="30" y="736" class="b">4  RESULT & REPORTS</text>
+<text x="30" y="736" class="b">4  RESULT &amp; REPORTS</text>
 <rect x="150" y="750" width="250" height="46" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
 <text x="275.0" y="778.0" class="t" fill="#0F172A">Test result</text>
 <path d="M275,668 L275,750" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
