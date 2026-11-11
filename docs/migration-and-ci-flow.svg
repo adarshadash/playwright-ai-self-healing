@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<style>.t{font-size:14px;font-weight:600;text-anchor:middle}.s{font-size:12px;fill:#475569;text-anchor:middle}.l{font-size:11px;fill:#334155;text-anchor:middle;font-weight:600}.b{font-size:13px;font-weight:700;fill:#334155;letter-spacing:.06em}.h{font-size:20px;font-weight:700;fill:#0F172A}.k{font-size:12px;fill:#334155}</style>
+<rect width="1000" height="520" rx="16" fill="#FFFFFF"/>
+<text x="30" y="40" class="h">Migration pipeline and scheduled jobs</text>
+<rect x="30" y="56" width="16" height="16" rx="4" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="69" class="k">Code</text>
+<rect x="100.4" y="56" width="16" height="16" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="122.4" y="69" class="k">Config / output file</text>
+<rect x="276.4" y="56" width="16" height="16" rx="4" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="298.4" y="69" class="k">Agent check</text>
+<rect x="393.0" y="56" width="16" height="16" rx="4" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="415.0" y="69" class="k">Claude API</text>
+<rect x="503.0" y="56" width="16" height="16" rx="4" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<text x="525.0" y="69" class="k">Success</text>
+<rect x="593.2" y="56" width="16" height="16" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.6"/>
+<text x="615.2" y="69" class="k">Failure</text>
+<rect x="12" y="90" width="976" height="170" rx="12" fill="#F8FAFC"/>
+<text x="30" y="116" class="b">A  SELENIUM → PLAYWRIGHT  (npm run migrate)</text>
+<rect x="30" y="140" width="150" height="52" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="105.0" y="163.0" class="t" fill="#0F172A">legacy-selenium/</text>
+<text x="105.0" y="180.0" class="s">*.java tests</text>
+<path d="M180,166 L205,166" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="205" y="140" width="150" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="280.0" y="163.0" class="t" fill="#0F172A">orchestrator.ts</text>
+<text x="280.0" y="180.0" class="s">parallel per file</text>
+<path d="M355,166 L380,166" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="380" y="140" width="150" height="52" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="455.0" y="163.0" class="t" fill="#0F172A">Analyzer</text>
+<text x="455.0" y="180.0" class="s">actions · smells</text>
+<path d="M530,166 L555,166" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="555" y="140" width="150" height="52" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="630.0" y="163.0" class="t" fill="#0F172A">Converter</text>
+<text x="630.0" y="180.0" class="s">rules or Claude</text>
+<path d="M705,166 L730,166" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="730" y="140" width="110" height="52" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="785.0" y="163.0" class="t" fill="#0F172A">Reviewer</text>
+<text x="785.0" y="180.0" class="s">checks rules</text>
+<path d="M840,166 L860,166" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="860" y="140" width="115" height="52" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<text x="917.5" y="163.0" class="t" fill="#0F172A">*.migrated</text>
+<text x="917.5" y="180.0" class="s">.spec.ts</text>
+<path d="M785,192 L785,222 L630,222 L630,192" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="632.6" y="212" width="150.8" height="16" rx="8" fill="#FFFFFF"/>
+<text x="708" y="224" class="l">errors → retry (max 2)</text>
+<rect x="380" y="200" width="150" height="46" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="455.0" y="220.0" class="t" fill="#0F172A">locators.json</text>
+<text x="455.0" y="237.0" class="s">known selectors</text>
+<path d="M530,223 L555,223 L555,195 L570,192" fill="none" stroke="#475569" stroke-width="1.6"/>
+<rect x="12" y="275" width="976" height="230" rx="12" fill="#FFFFFF"/>
+<text x="30" y="301" class="b">B  GITHUB ACTIONS</text>
+<text x="30" y="330" class="t" style="text-anchor:start">Daily · push · PR</text>
+<rect x="30" y="345" width="180" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="120.0" y="368.0" class="t" fill="#0F172A">daily-regression.yml</text>
+<text x="120.0" y="385.0" class="s">AI healing off</text>
+<path d="M210,371 L240,371" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="240" y="345" width="170" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="325.0" y="376.0" class="t" fill="#0F172A">npx playwright test</text>
+<path d="M410,371 L440,371" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="440" y="345" width="150" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="515.0" y="368.0" class="t" fill="#0F172A">npm run heal</text>
+<text x="515.0" y="385.0" class="s">dry run</text>
+<path d="M590,371 L620,371" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="620" y="345" width="340" height="52" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="790.0" y="368.0" class="t" fill="#0F172A">Job summary + report artifacts</text>
+<text x="790.0" y="385.0" class="s">failure-report.md · healing-summary.md</text>
+<text x="30" y="430" class="t" style="text-anchor:start">Weekly · on demand</text>
+<rect x="30" y="442" width="180" height="52" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="120.0" y="465.0" class="t" fill="#0F172A">weekly-heal.yml</text>
+<text x="120.0" y="482.0" class="s">Claude healing on</text>
+<path d="M210,468 L240,468" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="240" y="442" width="170" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="325.0" y="473.0" class="t" fill="#0F172A">npx playwright test</text>
+<path d="M410,468 L440,468" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="440" y="442" width="150" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="515.0" y="465.0" class="t" fill="#0F172A">npm run heal:apply</text>
+<text x="515.0" y="482.0" class="s">updates locators</text>
+<path d="M590,468 L620,468" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="620" y="442" width="340" height="52" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<text x="790.0" y="465.0" class="t" fill="#0F172A">Pull request</text>
+<text x="790.0" y="482.0" class="s">updated locators/locators.json</text>
+</svg>

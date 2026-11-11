@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1080" width="1000" height="1080" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<style>.t{font-size:14px;font-weight:600;text-anchor:middle}.s{font-size:12px;fill:#475569;text-anchor:middle}.l{font-size:11px;fill:#334155;text-anchor:middle;font-weight:600}.b{font-size:13px;font-weight:700;fill:#334155;letter-spacing:.06em}.h{font-size:20px;font-weight:700;fill:#0F172A}.k{font-size:12px;fill:#334155}</style>
+<rect width="1000" height="1080" rx="16" fill="#FFFFFF"/>
+<text x="30" y="40" class="h">What happens when a test runs</text>
+<rect x="30" y="56" width="16" height="16" rx="4" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="69" class="k">Code</text>
+<rect x="100.4" y="56" width="16" height="16" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="122.4" y="69" class="k">Config / output file</text>
+<rect x="276.4" y="56" width="16" height="16" rx="4" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="298.4" y="69" class="k">Healing step</text>
+<rect x="399.59999999999997" y="56" width="16" height="16" rx="4" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="421.59999999999997" y="69" class="k">Claude API</text>
+<rect x="509.59999999999997" y="56" width="16" height="16" rx="4" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<text x="531.5999999999999" y="69" class="k">Success</text>
+<rect x="599.8" y="56" width="16" height="16" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.6"/>
+<text x="621.8" y="69" class="k">Failure</text>
+<rect x="12" y="90" width="976" height="170" rx="12" fill="#F8FAFC"/>
+<text x="30" y="116" class="b">1  RUN</text>
+<rect x="150" y="145" width="190" height="46" rx="23" fill="#0F172A" stroke="#0F172A" stroke-width="1.6"/>
+<text x="245.0" y="173.0" class="t" fill="#FFFFFF">npx playwright test</text>
+<path d="M340,168 L380,168" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="380" y="140" width="210" height="56" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="485.0" y="165.0" class="t" fill="#0F172A">playwright.config.ts</text>
+<text x="485.0" y="182.0" class="s">projects · reporters · baseURL</text>
+<rect x="660" y="110" width="230" height="38" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="775.0" y="134.0" class="t" fill="#0F172A">tests/unit  (no browser)</text>
+<rect x="660" y="158" width="230" height="38" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="775.0" y="182.0" class="t" fill="#0F172A">tests/ui/*.spec.ts</text>
+<rect x="660" y="206" width="230" height="38" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="775.0" y="230.0" class="t" fill="#0F172A">migration/output/*.spec.ts</text>
+<path d="M590,168 L625,168 L625,129 L660,129" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M590,168 L625,168 L625,177 L660,177" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M590,168 L625,168 L625,225 L660,225" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M890,177 L905,177 L905,225 L890,225" fill="none" stroke="#475569" stroke-width="1.6"/>
+<rect x="12" y="275" width="976" height="105" rx="12" fill="#FFFFFF"/>
+<text x="30" y="301" class="b">2  TEST LAYER</text>
+<rect x="660" y="310" width="230" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="775.0" y="333.0" class="t" fill="#0F172A">src/fixtures.ts</text>
+<text x="775.0" y="350.0" class="s">page objects · healer · loggedIn</text>
+<path d="M905,201 L920,201 L920,290 L775,290 L775,310" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="803.4" y="280" width="93.2" height="16" rx="8" fill="#FFFFFF"/>
+<text x="850" y="292" class="l">ui + migrated</text>
+<rect x="410" y="310" width="210" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="515.0" y="333.0" class="t" fill="#0F172A">src/pages/*-page.ts</text>
+<text x="515.0" y="350.0" class="s">Login · Inventory · Cart · Checkout</text>
+<path d="M660,336 L620,336" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="150" y="310" width="210" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="255.0" y="333.0" class="t" fill="#0F172A">src/pages/base-page.ts</text>
+<text x="255.0" y="350.0" class="s">click · fill · text by key</text>
+<path d="M410,336 L360,336" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="12" y="395" width="976" height="300" rx="12" fill="#F8FAFC"/>
+<text x="30" y="421" class="b">3  SELF-HEALING LOCATOR</text>
+<rect x="410" y="430" width="300" height="50" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="560.0" y="452.0" class="t" fill="#0F172A">self-healing-locator.ts</text>
+<text x="560.0" y="469.0" class="s">get(&quot;checkout.continue&quot;)</text>
+<path d="M255,362 L255,400 L560,400 L560,430" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="150" y="430" width="210" height="50" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="255.0" y="452.0" class="t" fill="#0F172A">locators/locators.json</text>
+<text x="255.0" y="469.0" class="s">selector · description · fallbacks</text>
+<path d="M410,455 L360,455" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="364.0" y="436" width="42.0" height="16" rx="8" fill="#FFFFFF"/>
+<text x="385" y="448" class="l">reads</text>
+<rect x="150" y="515" width="180" height="54" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="240.0" y="539.0" class="t" fill="#0F172A">1  Primary selector</text>
+<text x="240.0" y="556.0" class="s">waits up to 4 s</text>
+<rect x="350" y="515" width="180" height="54" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="440.0" y="539.0" class="t" fill="#0F172A">2  Known fallbacks</text>
+<text x="440.0" y="556.0" class="s">instant check</text>
+<rect x="550" y="515" width="180" height="54" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.6"/>
+<text x="640.0" y="539.0" class="t" fill="#0F172A">3  Heuristics</text>
+<text x="640.0" y="556.0" class="s">from the description</text>
+<rect x="750" y="515" width="180" height="54" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="840.0" y="539.0" class="t" fill="#0F172A">4  Claude API</text>
+<text x="840.0" y="556.0" class="s">only with an API key</text>
+<path d="M560,480 L560,497 L240,497 L240,515" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M330,542 L350,542" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="322.2" y="520" width="35.6" height="16" rx="8" fill="#FFFFFF"/>
+<text x="340" y="532" class="l">miss</text>
+<path d="M530,542 L550,542" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="522.2" y="520" width="35.6" height="16" rx="8" fill="#FFFFFF"/>
+<text x="540" y="532" class="l">miss</text>
+<path d="M730,542 L750,542" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="722.2" y="520" width="35.6" height="16" rx="8" fill="#FFFFFF"/>
+<text x="740" y="532" class="l">miss</text>
+<rect x="150" y="620" width="250" height="48" rx="8" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<text x="275.0" y="649.0" class="t" fill="#0F172A">Action on saucedemo.com</text>
+<path d="M240,569 L240,620" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="219.0" y="584" width="42.0" height="16" rx="8" fill="#FFFFFF"/>
+<text x="240" y="596" class="l">found</text>
+<path d="M440,569 L440,590" fill="none" stroke="#475569" stroke-width="1.6"/>
+<path d="M640,569 L640,590" fill="none" stroke="#475569" stroke-width="1.6"/>
+<path d="M800,569 L800,590" fill="none" stroke="#475569" stroke-width="1.6"/>
+<path d="M440,590 L800,590" fill="none" stroke="#475569" stroke-width="1.6"/>
+<text x="620" y="584" class="l">healed</text>
+<rect x="470" y="620" width="240" height="48" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="590.0" y="641.0" class="t" fill="#0F172A">healing-log.ts</text>
+<text x="590.0" y="658.0" class="s">recordHeal()</text>
+<path d="M590,590 L590,620" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M470,644 L400,644" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="760" y="620" width="200" height="48" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.6"/>
+<text x="860.0" y="641.0" class="t" fill="#0F172A">HealingError</text>
+<text x="860.0" y="658.0" class="s">nothing matched</text>
+<path d="M900,569 L900,620" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="882.2" y="584" width="35.6" height="16" rx="8" fill="#FFFFFF"/>
+<text x="900" y="596" class="l">miss</text>
+<rect x="12" y="710" width="976" height="190" rx="12" fill="#FFFFFF"/>
+<text x="30" y="736" class="b">4  RESULT & REPORTS</text>
+<rect x="150" y="750" width="250" height="46" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="275.0" y="778.0" class="t" fill="#0F172A">Test result</text>
+<path d="M275,668 L275,750" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M860,668 L860,728 L400,728 L400,740 L380,740 L380,750" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M890,129 L975,129 L975,728 L860,728" fill="none" stroke="#475569" stroke-width="1.6"/>
+<rect x="470" y="750" width="240" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="590.0" y="773.0" class="t" fill="#0F172A">human-readable-reporter.ts</text>
+<text x="590.0" y="790.0" class="s">onTestEnd · onEnd</text>
+<path d="M400,773 L470,773" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="760" y="750" width="200" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="860.0" y="773.0" class="t" fill="#0F172A">failure-translator.ts</text>
+<text x="860.0" y="790.0" class="s">cause · owner · fix</text>
+<path d="M710,768 L760,768" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="710.8" y="750" width="48.400000000000006" height="16" rx="8" fill="#FFFFFF"/>
+<text x="735" y="762" class="l">failed</text>
+<path d="M760,786 L710,786" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="150" y="830" width="250" height="46" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="275.0" y="850.0" class="t" fill="#0F172A">reports/html</text>
+<text x="275.0" y="867.0" class="s">Playwright HTML report</text>
+<path d="M200,796 L200,830" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="470" y="830" width="240" height="52" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="590.0" y="853.0" class="t" fill="#0F172A">failure-report.html / .md</text>
+<text x="590.0" y="870.0" class="s">what broke · why · who · fix</text>
+<path d="M590,802 L590,830" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="12" y="915" width="976" height="150" rx="12" fill="#F8FAFC"/>
+<text x="30" y="941" class="b">5  LOCATOR MAINTENANCE  (npm run heal · weekly CI)</text>
+<rect x="470" y="960" width="240" height="48" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="590.0" y="981.0" class="t" fill="#0F172A">reports/healing/*.jsonl</text>
+<text x="590.0" y="998.0" class="s">one file per worker</text>
+<path d="M560,668 L560,690 L735,690 L735,984 L710,984" fill="none" stroke="#475569" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<path d="M470,975 L450,975 L450,792 L470,792" fill="none" stroke="#475569" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<rect x="413.0" y="895" width="74.0" height="16" rx="8" fill="#FFFFFF"/>
+<text x="450" y="907" class="l">heal count</text>
+<rect x="150" y="960" width="250" height="52" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="275.0" y="983.0" class="t" fill="#0F172A">scripts/heal-locators.ts</text>
+<text x="275.0" y="1000.0" class="s">summary · --apply</text>
+<path d="M470,990 L400,990" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="760" y="960" width="200" height="52" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/>
+<text x="860.0" y="983.0" class="t" fill="#0F172A">healing-summary.md</text>
+<text x="860.0" y="1000.0" class="s">what healed, how often</text>
+<path d="M400,1000 L420,1000 L420,1040 L860,1040 L860,1012" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M150,986 L22,986 L22,455 L150,455" fill="none" stroke="#2563EB" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<rect x="34.599999999999994" y="590" width="54.800000000000004" height="16" rx="8" fill="#FFFFFF"/>
+<text x="62" y="602" class="l">--apply</text>
+</svg>
