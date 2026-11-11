@@ -1,0 +1,43 @@
+name: Daily regression
+
+on:
+  schedule:
+    - cron: '30 1 * * *' # 07:00 IST every day
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Daily runs heal with fallbacks + heuristics only; the Claude tier runs weekly.
+      AI_HEALING: 'off'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npx playwright test
+      - name: Healing summary
+        if: always()
+        run: npm run heal
+      - name: Publish failure report to the job summary
+        if: always()
+        run: |
+          cat reports/failure-report.md >> "$GITHUB_STEP_SUMMARY" || true
+          cat reports/healing/healing-summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reports
+          path: |
+            reports/
+            test-results/
+          retention-days: 14

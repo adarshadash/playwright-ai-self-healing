@@ -1,0 +1,107 @@
+{
+  "login.username": {
+    "selector": "[data-test='username']",
+    "description": "Username text input on the login page",
+    "fallbacks": ["#user-name", "input[placeholder='Username']"]
+  },
+  "login.password": {
+    "selector": "[data-test='password']",
+    "description": "Password text input on the login page",
+    "fallbacks": ["#password", "input[type='password']"]
+  },
+  "login.submit": {
+    "selector": "[data-test='login-button']",
+    "description": "Login button that submits the login form",
+    "fallbacks": ["#login-button", "input[type='submit']"]
+  },
+  "login.error": {
+    "selector": "[data-test='error']",
+    "description": "Error message banner shown on failed login",
+    "fallbacks": [".error-message-container h3"]
+  },
+  "inventory.title": {
+    "selector": "[data-test='title']",
+    "description": "Page title text that says Products",
+    "fallbacks": [".title"]
+  },
+  "inventory.item": {
+    "selector": "[data-test='inventory-item']",
+    "description": "A product card in the inventory list",
+    "fallbacks": [".inventory_item"]
+  },
+  "inventory.itemName": {
+    "selector": "[data-test='inventory-item-name']",
+    "description": "Product name text inside a product card",
+    "fallbacks": [".inventory_item_name"]
+  },
+  "inventory.itemPrice": {
+    "selector": "[data-test='inventory-item-price']",
+    "description": "Product price text inside a product card",
+    "fallbacks": [".inventory_item_price"]
+  },
+  "inventory.sort": {
+    "selector": "[data-test='product-sort-container']",
+    "description": "Sort dropdown for the product list",
+    "fallbacks": [".product_sort_container", "select"]
+  },
+  "header.cartLink": {
+    "selector": "[data-test='shopping-cart-link']",
+    "description": "Shopping cart icon link in the header",
+    "fallbacks": [".shopping_cart_link"]
+  },
+  "header.cartBadge": {
+    "selector": "[data-test='shopping-cart-badge']",
+    "description": "Number badge on the cart icon showing item count",
+    "fallbacks": [".shopping_cart_badge"]
+  },
+  "cart.item": {
+    "selector": "[data-test='inventory-item']",
+    "description": "A line item in the cart",
+    "fallbacks": [".cart_item"]
+  },
+  "cart.checkout": {
+    "selector": "[data-test='checkout']",
+    "description": "Checkout button on the cart page",
+    "fallbacks": ["#checkout"]
+  },
+  "checkout.firstName": {
+    "selector": "[data-test='firstName']",
+    "description": "First name input on checkout information page",
+    "fallbacks": ["#first-name"]
+  },
+  "checkout.lastName": {
+    "selector": "[data-test='lastName']",
+    "description": "Last name input on checkout information page",
+    "fallbacks": ["#last-name"]
+  },
+  "checkout.postalCode": {
+    "selector": "[data-test='postalCode']",
+    "description": "Zip or postal code input on checkout information page",
+    "fallbacks": ["#postal-code"]
+  },
+  "checkout.continue": {
+    "selector": "[data-test='continue']",
+    "description": "Continue button on checkout information page",
+    "fallbacks": ["#continue"]
+  },
+  "checkout.error": {
+    "selector": "[data-test='error']",
+    "description": "Validation error message on checkout information page",
+    "fallbacks": [".error-message-container h3"]
+  },
+  "checkout.itemTotal": {
+    "selector": "[data-test='subtotal-label']",
+    "description": "Item total (subtotal) label on checkout overview",
+    "fallbacks": [".summary_subtotal_label"]
+  },
+  "checkout.finish": {
+    "selector": "[data-test='finish']",
+    "description": "Finish button that places the order",
+    "fallbacks": ["#finish"]
+  },
+  "checkout.completeHeader": {
+    "selector": "[data-test='complete-header']",
+    "description": "Thank you for your order header on the confirmation page",
+    "fallbacks": [".complete-header"]
+  }
+}

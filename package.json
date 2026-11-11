@@ -1,0 +1,28 @@
+{
+  "name": "playwright-ai-self-healing",
+  "version": "1.0.0",
+  "description": "Playwright framework demo: Selenium-to-Playwright multi-agent migration, Claude-powered self-healing locators and human-readable failure reports (Sauce Demo).",
+  "private": true,
+  "author": "Adarsha Dash",
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --project=chromium",
+    "test:unit": "playwright test --project=unit",
+    "test:heal-demo": "playwright test --project=chromium tests/ui/self-healing.spec.ts",
+    "heal": "tsx scripts/heal-locators.ts",
+    "heal:apply": "tsx scripts/heal-locators.ts --apply",
+    "migrate": "tsx migration/orchestrator.ts",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0"
+  }
+}

@@ -1,0 +1,43 @@
+name: Weekly locator healing (Claude)
+
+on:
+  schedule:
+    - cron: '30 2 * * 1' # Mondays 08:00 IST
+  workflow_dispatch: # run on demand from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  heal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Run suite with every healing tier enabled
+        run: npx playwright test --project=chromium --project=migrated
+        continue-on-error: true
+      - name: Promote healed selectors in locators/locators.json
+        run: npm run heal:apply
+      - name: Open a pull request with the updated locators
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/locator-healing
+          title: 'chore: self-healed locators'
+          commit-message: 'chore: promote self-healed locators'
+          body-path: reports/healing/healing-summary.md
+          add-paths: locators/locators.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: healing-reports
+          path: reports/
