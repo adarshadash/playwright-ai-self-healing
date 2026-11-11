@@ -38,7 +38,7 @@ scripts/heal-locators.ts      ← weekly / on-demand registry update
 
 ### How a test run flows through the files
 
-![What happens when a test runs](docs/test-run-flow.svg)
+![What happens when a test runs](docs/test-run-flow-v2.png)
 
 1. **Run** — `playwright.config.ts` picks the project: UI specs, migrated specs, or browser-free unit tests.
 2. **Test layer** — specs use fixtures, which build page objects; every page action goes through `base-page.ts` by locator key.
@@ -48,7 +48,7 @@ scripts/heal-locators.ts      ← weekly / on-demand registry update
 
 ### Migration pipeline and scheduled jobs
 
-![Migration pipeline and scheduled jobs](docs/migration-and-ci-flow.svg)
+![Migration pipeline and scheduled jobs](docs/migration-and-ci-flow-v2.png)
 
 ### Self-healing ladder
 
